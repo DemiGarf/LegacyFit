@@ -7,28 +7,32 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+    <div className="App">
+      <header className="App-header">
+        <div className="exercise-label">
+          Ejercicio: Press en banca
+        </div>
+      </header>
+      <main className="App-content">
+        <h1>Bienvenido a tu rutina de press banca</h1>
+        {/* Aquí puedes agregar más contenido relacionado con los ejercicios */}
+      </main>
+      <footer className="App-footer">
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          The bench press is a fundamental exercise for upper body strength training. It primarily targets the chest (pectoralis major), shoulders (anterior deltoids), and triceps. The exercise enhances muscle size, strength, and endurance in these areas.
         </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+        <p><strong>Correct Technique:</strong></p>
+        <ul>
+          <li>Lie on a flat bench with feet planted firmly on the ground.</li>
+          <li>Grip the barbell slightly wider than shoulder-width apart.</li>
+          <li>Lower the barbell to the lower chest, then press it upward without locking elbows.</li>
+          <li>Maintain a slight arch in the lower back for stability.</li>
+          <li>Make sure your elbows are at a 45-degree angle to your shoulders.</li>
+        </ul>
+      </footer>
+    </div>
+
+
   )
 }
 
