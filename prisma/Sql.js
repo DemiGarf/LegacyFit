@@ -1,0 +1,1 @@
+// cada vez que haga algo en prisma tengo que poner: npx prisma migrate dev --name init y despues npx prisma generate
