@@ -1,3 +1,18 @@
-const express = require("express");
-const app = express();  
-const { PrismaClient } = requiere 
+const express = require('express');
+const { PrismaClient } = require('@prisma/client');
+
+const prisma = new PrismaClient();
+const app = express();
+const port = 3000;
+app.get('/ejercicios', async (req, res) => {
+    try {
+      const ejercicios = await prisma.ejercicios.findMany();
+      res.json(ejercicios);
+    } catch (error) {
+      res.status(500).json({ error: 'Error al obtener los ejercicios' });
+    }
+  });
+  
+  app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+  });
