@@ -19,3 +19,12 @@ model Usuario {
   Apellido String
   Mail String
 }
+model Ejercicios{
+  Idejercicios Int @id @default(autoincrement())
+  Nombre String
+  Descripcion String
+}
+model Rutinas {
+  Idrutinas Int @id @default(autoincrement())
+  Idejercicios Int
+}
