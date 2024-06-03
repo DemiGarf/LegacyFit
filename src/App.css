@@ -10,7 +10,7 @@ html, body, #root {
 }
 
 .App {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins';
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,21 +23,15 @@ html, body, #root {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #282c34;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
 }
 
 .exercise-label {
   font-size: 16px;
 }
 
-.arrow-button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-}
+
 
 .App-content {
   flex: 1;
@@ -53,17 +47,16 @@ html, body, #root {
   justify-content: space-around;
   width: 100%;
   padding: 20px;
-  background-color: #f1f1f1;
 }
 
 .footer-button {
-  background-color: #282c34;
+  background-color: #afb0b3;
   color: white;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-
+  font-family: 'Poppins';
 }
 
 .footer-button:hover {
@@ -71,3 +64,6 @@ html, body, #root {
 }
 
 
+.arrow-button{
+  background-color: transparent;
+}

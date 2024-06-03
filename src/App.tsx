@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
+
 const App: React.FC = () => {
   const [isExplicationModalOpen, setIsExplicationModalOpen] = useState(false);
   const [isAlternativesModalOpen, setIsAlternativesModalOpen] = useState(false);
@@ -43,12 +44,12 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
         <div className="exercise-label">
-          Ejercicio: Press en banca
+          <img src="../public\Logo_canva_compartido_con_mati-removebg-preview 2 (1).png" alt="Logo" className='logo' />
         </div>
-        <button className="arrow-button">➔</button>
+        <button className="arrow-button"><img src="../public\volver-removebg-preview 1.png" alt="Arrow" className='arrow' /></button>
       </header>
       <main className="App-content">
-        <h1>Bienvenido a tu rutina de press banca</h1>
+        <h1>Bienvenido a tu ejercicio de press banca</h1>
       </main>
       <footer className="App-footer">
         <div className="footer-section">

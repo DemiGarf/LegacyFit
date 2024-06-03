@@ -66,3 +66,14 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.logo{
+  width: 50px;
+  height: auto;
+  margin-left: .5rem;
+}
+
+.arrow{
+  width: 30px;
+  height: auto;
+}
