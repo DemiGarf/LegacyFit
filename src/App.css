@@ -63,8 +63,11 @@ html, body, #root {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+
 }
 
 .footer-button:hover {
   background-color: #444;
 }
+
+

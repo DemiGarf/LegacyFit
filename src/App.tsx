@@ -1,32 +1,79 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+  const [isExplicationModalOpen, setIsExplicationModalOpen] = useState(false);
+  const [isAlternativesModalOpen, setIsAlternativesModalOpen] = useState(false);
+
+  const handleOpenExplicationModal = () => {
+    if (isExplicationModalOpen) {
+      setIsExplicationModalOpen(false);
+    } else{
+      setIsExplicationModalOpen(true)
+    }
+  };
+  
+  const handleCloseExplicationModal = () => {
+    setIsExplicationModalOpen(false);
+  };
+  const handleOpenAlternativesModal = () => {
+    if (isAlternativesModalOpen) {
+      setIsAlternativesModalOpen(false);
+    } else{
+      setIsAlternativesModalOpen(true)
+    }
+  };
+
+  const handleCloseAlternativesModal = () => {
+    setIsAlternativesModalOpen(false);
+  };
+
+  const modalContent = (
+    <>
+      <h2>Correct Technique:</h2>
+      <p>Lie on a flat bench with feet planted firmly on the ground.</p>
+      <p>Grip the barbell slightly wider than shoulder-width apart.</p>
+      <p>Lower the barbell to the lower chest, then press it upward without locking elbows.</p>
+      <p>Maintain a slight arch in the lower back for stability.</p>
+      <p>Make sure your elbows are at a 45-degree angle to your shoulders.</p>
+    </>
+  );
 
   return (
     <div className="App">
-    <header className="App-header">
-      <div className="exercise-label">
-        Ejercicio: Press en banca
-      </div>
-      <button className="arrow-button">➔</button>
-    </header>
-    <main className="App-content">
-      <h1>Bienvenido a tu rutina de press banca</h1>
-      {/* Aquí puedes agregar más contenido relacionado con los ejercicios */}
-    </main>
-    <footer className="App-footer">
-      <button className="footer-button">Explication</button>
-      <button className="footer-button">Alternatives</button>
-    </footer>
-  </div>
-
-
-
+      <header className="App-header">
+        <div className="exercise-label">
+          Ejercicio: Press en banca
+        </div>
+        <button className="arrow-button">➔</button>
+      </header>
+      <main className="App-content">
+        <h1>Bienvenido a tu rutina de press banca</h1>
+      </main>
+      <footer className="App-footer">
+        <div className="footer-section">
+          <button className="footer-button" onClick={handleOpenExplicationModal} >Explication</button>
+          {isExplicationModalOpen && (
+            <div className="modal" onClick={handleCloseExplicationModal}>
+              <div className="modal-content" onClick={e => e.stopPropagation()}>
+                {modalContent}
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="footer-section">
+          <button className="footer-button" onClick={handleOpenAlternativesModal}>Alternatives</button>
+          {isAlternativesModalOpen && (
+            <div className="modal" onClick={handleCloseAlternativesModal}>
+              <div className="modal-content" onClick={e => e.stopPropagation()}>
+                {modalContent}
+              </div>
+            </div>
+          )}
+        </div>
+      </footer>
+    </div>
   );
-}
+};
 
-export default App
+export default App;
