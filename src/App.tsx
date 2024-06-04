@@ -1,28 +1,20 @@
 import React, { useState } from 'react';
 import './App.css';
 
-
 const App: React.FC = () => {
   const [isExplicationModalOpen, setIsExplicationModalOpen] = useState(false);
   const [isAlternativesModalOpen, setIsAlternativesModalOpen] = useState(false);
 
   const handleOpenExplicationModal = () => {
-    if (isExplicationModalOpen) {
-      setIsExplicationModalOpen(false);
-    } else{
-      setIsExplicationModalOpen(true)
-    }
+    setIsExplicationModalOpen(!isExplicationModalOpen);
   };
-  
+
   const handleCloseExplicationModal = () => {
     setIsExplicationModalOpen(false);
   };
+
   const handleOpenAlternativesModal = () => {
-    if (isAlternativesModalOpen) {
-      setIsAlternativesModalOpen(false);
-    } else{
-      setIsAlternativesModalOpen(true)
-    }
+    setIsAlternativesModalOpen(!isAlternativesModalOpen);
   };
 
   const handleCloseAlternativesModal = () => {
@@ -44,17 +36,22 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
         <div className="exercise-label">
-          <img src="../public\Logo_canva_compartido_con_mati-removebg-preview 2 (1).png" alt="Logo" className='logo' />
+          <img src="../public/Logo_canva_compartido_con_mati-removebg-preview 2 (1).png" alt="Logo" className='logo' />
         </div>
-        <button className="arrow-button"><img src="../public\volver-removebg-preview 1.png" alt="Arrow" className='arrow' /></button>
+        <button className="arrow-button"><img src="../public/volver-removebg-preview 1.png" alt="Arrow" className='arrow' /></button>
       </header>
       <main className="App-content">
-        <h1>Bienvenido a tu ejercicio de press banca</h1>
+        <div className="informacion-container">
+          <button className="guardar-button">gardar</button>
+          <p className="info-text">
+            The bench press is a fundamental exercise for upper body strength training. It primarily targets the chest (pectoralis major), shoulders (anterior deltoids), and triceps. The exercise enhances muscle size, strength, and endurance in these areas.
+          </p>
+        </div>
       </main>
       <footer className="App-footer">
         <div className="footer-section">
           <div>
-              <button className="footer-button" onClick={handleOpenExplicationModal} >Explication</button>
+            <button className="footer-button" onClick={handleOpenExplicationModal}>Explication</button>
           </div>
           {isExplicationModalOpen && (
             <div className="modal" onClick={handleCloseExplicationModal}>
@@ -65,7 +62,9 @@ const App: React.FC = () => {
           )}
         </div>
         <div className="footer-section">
-          <button className="footer-button" onClick={handleOpenAlternativesModal}>Alternatives</button>
+          <div>
+            <button className="footer-button" onClick={handleOpenAlternativesModal}>Alternatives</button>
+          </div>
           {isAlternativesModalOpen && (
             <div className="modal" onClick={handleCloseAlternativesModal}>
               <div className="modal-content sombra-2" onClick={e => e.stopPropagation()}>
