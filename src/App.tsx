@@ -53,10 +53,12 @@ const App: React.FC = () => {
       </main>
       <footer className="App-footer">
         <div className="footer-section">
-          <button className="footer-button" onClick={handleOpenExplicationModal} >Explication</button>
+          <div>
+              <button className="footer-button" onClick={handleOpenExplicationModal} >Explication</button>
+          </div>
           {isExplicationModalOpen && (
             <div className="modal" onClick={handleCloseExplicationModal}>
-              <div className="modal-content" onClick={e => e.stopPropagation()}>
+              <div className="modal-content sombra-2" onClick={e => e.stopPropagation()}>
                 {modalContent}
               </div>
             </div>
@@ -66,7 +68,7 @@ const App: React.FC = () => {
           <button className="footer-button" onClick={handleOpenAlternativesModal}>Alternatives</button>
           {isAlternativesModalOpen && (
             <div className="modal" onClick={handleCloseAlternativesModal}>
-              <div className="modal-content" onClick={e => e.stopPropagation()}>
+              <div className="modal-content sombra-2" onClick={e => e.stopPropagation()}>
                 {modalContent}
               </div>
             </div>
