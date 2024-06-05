@@ -58,6 +58,14 @@ html, body, #root {
   width: 50%;
   text-align:center;
 }
+
+.guardar-button{
+  margin-top: -8000px;
+  margin-left: -330px;
+}
+
+
+
 .footer-button {
   background-color: rgba(255,255,255, 0.4);
   color: white;
@@ -91,17 +99,17 @@ html, body, #root {
   padding: 19px 10px; 
 }
 
-/* Resto del código */
 
 .informacion-container {
   position: absolute;
-  top: 50%;
+  top: 46%;
   align-items: flex-end; 
   margin-right: 20px;
   text-align: right;
-  right: 20px;
-  transform: translateY(-50%);
-  text-align: center;
+  right: 250px;
+    margin-bottom: 250px;
+
+  
 }
 
 .guardar-button {
@@ -116,19 +124,10 @@ html, body, #root {
   font-size: 1em;
   border-radius: 10px;
   font-weight: bold;
-  margin-bottom: 10px;
+  position: relative;
+  margin-bottom: 250px;
 }
 
 .guardar-button:hover {
   background-color: rgba(255, 255, 255, 0.2);
-}
-
-.info-text {
-  margin-top: 100px;
-  color: white;
-  font-size: 12px;
-  padding: 1 20px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  max-width: 300px;
 }

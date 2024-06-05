@@ -42,11 +42,10 @@ const App: React.FC = () => {
       </header>
       <main className="App-content">
         <div className="informacion-container">
+        
           <button className="guardar-button">gardar</button>
-          <p className="info-text">
-            The bench press is a fundamental exercise for upper body strength training. It primarily targets the chest (pectoralis major), shoulders (anterior deltoids), and triceps. The exercise enhances muscle size, strength, and endurance in these areas.
-          </p>
         </div>
+        
       </main>
       <footer className="App-footer">
         <div className="footer-section">
