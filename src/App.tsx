@@ -43,7 +43,8 @@ const App: React.FC = () => {
       <main className="App-content">
         <div className="informacion-container">
         
-          <button className="guardar-button">gardar</button>
+          <button className="guardar-button">Add to your 
+          training routine</button>
         </div>
         
       </main>
