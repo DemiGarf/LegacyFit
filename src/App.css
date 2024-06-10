@@ -27,9 +27,14 @@ html, body, #root {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 1px 7px;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
+}
+.bench-title {
+margin-left: 1000px;
+
+
 }
 
 .exercise-label {
@@ -102,7 +107,7 @@ html, body, #root {
 
 .informacion-container {
   position: absolute;
-  top: 45%;
+  top: 40%;
   align-items: flex-end; 
   margin-right: 20px;
   text-align: right;
@@ -127,7 +132,7 @@ html, body, #root {
   font-weight: bold;
   position: relative;
   margin-bottom: 20px;
-  
+  margin-right: -56px;
 }
 
 .guardar-button:hover {
