@@ -39,15 +39,11 @@ const App: React.FC = () => {
           <img src="../public/Logo_canva_compartido_con_mati-removebg-preview 2 (1).png" alt="Logo" className='logo' />
         </div>
         <button className="arrow-button"><img src="../public/volver-removebg-preview 1.png" alt="Arrow" className='arrow' /></button>
-   
       </header>
-      <div className="exercise-title">
-          <img src="./Bench Press.png" alt="Title" className='bench-title' />
-        </div>
-        
       <main className="App-content">
         <div className="informacion-container">
-          <button className="guardar-button">Add to your <br />
+        
+          <button className="guardar-button">Add to your 
           training routine</button>
         </div>
         
@@ -65,9 +61,6 @@ const App: React.FC = () => {
             </div>
           )}
         </div>
-
-      
-
         <div className="footer-section">
           <div>
             <button className="footer-button" onClick={handleOpenAlternativesModal}>Alternatives</button>
