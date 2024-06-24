@@ -13,7 +13,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 app.use(express.json());
 
 // Usar las rutas de usuarios
-app.use('/users', userRoutes);
+app.use('/user', userRoutes);
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 3000;
