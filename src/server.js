@@ -1,11 +1,11 @@
-const express = require('express');
-const { PrismaClient } = require('@prisma/client');
-const { createClient } = require('@supabase/supabase-js');
-const userRoutes = require('./routes/users');
+import express from 'express';
+import { PrismaClient } from '@prisma/client';
+// import { createClient } from '@supabase/supabase-js';
+import userRoutes from './src/Routes/';
+import funcs from './user.js';
 
 const app = express();
 const prisma = new PrismaClient();
-const funcs = require("./user.js");
 const supabaseUrl = process.env.SUPABASE_URL || 'https://yourpostgres://postgres.jbnqlmrwypswfrtaflrm:Legacy2%3A%29%23%2Fla@aws-0-sa-east-1.pooler.supabase.com:5432/postgres?pgbouncer=true-supabase-url.supabase.co';
 const supabaseKey = process.env.SUPABASE_KEY || 'Legacy2:)#la';
 const supabase = createClient(supabaseUrl, supabaseKey);

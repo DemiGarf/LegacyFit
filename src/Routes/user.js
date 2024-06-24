@@ -38,4 +38,17 @@ router.post('/', async (req, res) => {
   }
 });
 
-module.exports = router;
+router.get('/ejercicios', async (req, res) => {
+  try {
+    const ejercicios = await prisma.ejercicios.findMany({
+      select: {
+        Nombre: true,
+      },
+    });
+    res.json(ejercicios);
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching exercises' });
+  }
+});
+
+export default router;
