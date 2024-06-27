@@ -26,8 +26,10 @@ router.post('/', async (req, res) => {
     const newUser = await prisma.user.create({
       data: { name, email },
     });
-
     // También puedo hacer algo con Supabase aca
+
+    // También podrías hacer algo con Supabase aquí
+
     // const { data, error } = await supabase
     //   .from('your-table')
     //   .insert([{ name, email }]);
