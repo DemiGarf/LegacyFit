@@ -1,8 +1,7 @@
-
-const express = require('express');
-const { PrismaClient } = require('@prisma/client');
-const { createClient } = require('@supabase/supabase-js');
-const userRoutes = require('./routes/users');
+import express from 'express';
+import { PrismaClient } from '@prisma/client';
+import { createClient } from '@supabase/supabase-js';
+import userRoutes from './routes/users';
 
 const app = express();
 const prisma = new PrismaClient();
