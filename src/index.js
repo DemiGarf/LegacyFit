@@ -1,7 +1,7 @@
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import { createClient } from '@supabase/supabase-js';
-import userRoutes from './routes/users';
+import userRoutes from './Routes/user.js';
 
 const app = express();
 const prisma = new PrismaClient();
