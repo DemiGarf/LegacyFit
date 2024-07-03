@@ -2,6 +2,7 @@ import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import { createClient } from '@supabase/supabase-js';
 import userRoutes from './Routes/user.js';
+import ejerciciosRoutes from './Routes/ejercicios.js'
 
 const app = express();
 const prisma = new PrismaClient();
@@ -13,7 +14,9 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 app.use(express.json());
 
 // Usar las rutas de usuarios
-app.use('/user', userRoutes);
+//app.use('/user', userRoutes);
+
+app.use('/ejercicios', ejerciciosRoutes);
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 3000;
