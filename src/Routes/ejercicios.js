@@ -4,6 +4,15 @@ import { PrismaClient } from '@prisma/client';
 const router = Router();
 const prisma = new PrismaClient();
 
+router.get('/', async (req, res) => {
+  try {
+    const ejercicios = await prisma.ejercicios.findMany();
+    res.json(ejercicios);
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener los nombres de los ejercicios' });
+  }
+});
+
 // Endpoint para obtener todos los nombres de la tabla Ejercicios
 router.get('/nombres', async (req, res) => {
   try {
