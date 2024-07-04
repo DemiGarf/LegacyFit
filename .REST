@@ -1,4 +1,2 @@
-GET http://localhost:8080/ejercicios Content-Type: application/json
-{
-
-}
+GET http://localhost:3000/ejercicios/
+Content-Type: application/json
