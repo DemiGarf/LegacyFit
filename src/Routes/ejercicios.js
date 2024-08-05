@@ -28,15 +28,13 @@ router.get('/nombres', async (req, res) => {
 });
 
 // Endpoint para obtener la descripción de un ejercicio por su nombre
-router.get('/descripcion/:nombre', async (req, res) => {
-  const { nombre } = req.params;
+router.get('/descripcion/:id', async (req, res) => {
+  const { id } = req.params;
   try {
+    const idNum = parseInt(id, 10);
     const ejercicio = await prisma.ejercicios.findUnique({
       where: {
-        Nombre: nombre,
-      },
-      select: {
-        Descripcion: true,
+        Idejercicios: idNum,
       },
     });
 
@@ -46,7 +44,8 @@ router.get('/descripcion/:nombre', async (req, res) => {
 
     res.json(ejercicio);
   } catch (error) {
-    res.status(500).json({ error: 'Error al obtener la descripción del ejercicio' });
+    console.error('Error al obtener la descripción del ejercicio:', error);
+    res.status(500).json({ error: 'Error al obtener la descripción del ejercicio' + error });
   }
 });
 

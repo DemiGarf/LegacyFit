@@ -1,8 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Ejercicio: React.FC = () => {
   const [isExplicationModalOpen, setIsExplicationModalOpen] = useState(false);
   const [isAlternativesModalOpen, setIsAlternativesModalOpen] = useState(false);
+  const [ejercicio, setEjercicio] = useState<{ Id: string; Nombre: string; Descripcion: string; } | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchEjercicio = async () => {
+      const queryParams = new URLSearchParams(window.location.search);
+      const id = queryParams.get('id');
+
+      if (!id) {
+        setError('No se proporcionó un ID válido');
+        return;
+      }
+
+      try {
+        const response = await fetch(`http://localhost:3000/ejercicios/descripcion/${id}`);
+        if (!response.ok) {
+          throw new Error('Error al obtener los datos del ejercicio');
+        }
+        const data = await response.json();
+        setEjercicio(data);
+      } catch (error) {
+        console.error('Error fetching exercise:', error);
+        setError('Error fetching exercise');
+      }
+    };
+
+    fetchEjercicio();
+  }, []);
 
   const handleOpenExplicationModal = () => {
     setIsExplicationModalOpen(!isExplicationModalOpen);
@@ -20,13 +48,15 @@ const Ejercicio: React.FC = () => {
     setIsAlternativesModalOpen(false);
   };
 
-  //TODO: REEMPLAZAR POR API
-  const ejercicio = {
-        Id: "1",
-        Nombre: "Bench Press"
-    };
+  if (error) {
+    return <div>{error}</div>;
+  }
 
-    const modalContent = (
+  if (!ejercicio) {
+    return <div>Cargando...</div>;
+  }
+
+  const modalContent = (
     <>
       <h3>Correct Technique:</h3>
       <p>Lie on a flat bench with feet planted firmly on the ground.</p>
@@ -39,37 +69,36 @@ const Ejercicio: React.FC = () => {
 
   return (
     <div id="ejercicio">
-        <h2 className="main-title">{ejercicio.Nombre}</h2>
-        <div className="informacion-container">
-          <button className="guardar-button">Add to your 
-          training routine</button>
+      <h2 className="main-title">{ejercicio.Nombre}</h2>
+      <div className="informacion-container">
+        <button className="guardar-button">Add to your training routine</button>
+      </div>
+      <div className="ejercicio-footer">
+        <div className="footer-section">
+          <div>
+            <button className="footer-button" onClick={handleOpenExplicationModal}>Explication</button>
+          </div>
+          {isExplicationModalOpen && (
+            <div className="modal" onClick={handleCloseExplicationModal}>
+              <div className="modal-content sombra-2" onClick={e => e.stopPropagation()}>
+                {modalContent}
+              </div>
+            </div>
+          )}
         </div>
-        <div className="ejercicio-footer">
-            <div className="footer-section">
-            <div>
-                <button className="footer-button" onClick={handleOpenExplicationModal}>Explication</button>
+        <div className="footer-section">
+          <div>
+            <button className="footer-button" onClick={handleOpenAlternativesModal}>Alternatives</button>
+          </div>
+          {isAlternativesModalOpen && (
+            <div className="modal" onClick={handleCloseAlternativesModal}>
+              <div className="modal-content sombra-2" onClick={e => e.stopPropagation()}>
+                {modalContent}
+              </div>
             </div>
-            {isExplicationModalOpen && (
-                <div className="modal" onClick={handleCloseExplicationModal}>
-                <div className="modal-content sombra-2" onClick={e => e.stopPropagation()}>
-                    {modalContent}
-                </div>
-                </div>
-            )}
-            </div>
-            <div className="footer-section">
-            <div>
-                <button className="footer-button" onClick={handleOpenAlternativesModal}>Alternatives</button>
-            </div>
-            {isAlternativesModalOpen && (
-                <div className="modal" onClick={handleCloseAlternativesModal}>
-                <div className="modal-content sombra-2" onClick={e => e.stopPropagation()}>
-                    {modalContent}
-                </div>
-                </div>
-            )}
-            </div>
+          )}
         </div>
+      </div>
     </div>
   );
 };
