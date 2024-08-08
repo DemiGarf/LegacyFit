@@ -27,7 +27,7 @@ router.get('/nombres', async (req, res) => {
   }
 });
 
-// Endpoint para obtener la descripción de un ejercicio por su nombre
+// Endpoint para obtener la descripción de un ejercicio por su id
 router.get('/descripcion/:id', async (req, res) => {
   const { id } = req.params;
   try {
