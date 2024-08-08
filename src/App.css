@@ -13,7 +13,16 @@ html, body, #root {
   font-size: 3em;
   color: #9F4014;
   text-align: center;
+  margin-left: 50%;
+
 }
+.main-title.ej {
+  font-size: 3em;
+  color: #9F4014;
+  text-align: center;
+  
+}
+
 
 .sombra-1 {box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.5);}
 .sombra-2{ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.8), 0 1px 2px -1px rgb(0 0 0 / 0.8);}
@@ -116,7 +125,7 @@ html, body, #root {
   font-weight: bold;
   position: relative;
   margin-bottom: 20px;
-  
+  margin-right: -54px;
 }
 
 .guardar-button:hover {

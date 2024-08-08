@@ -71,7 +71,8 @@ const Ejercicio: React.FC = () => {
     <div id="ejercicio">
       <h2 className="main-title">{ejercicio.Nombre}</h2>
       <div className="informacion-container">
-        <button className="guardar-button">Add to your training routine</button>
+        <button className="guardar-button">Add to your <br/> training routine</button>
+        
       </div>
       <div className="ejercicio-footer">
         <div className="footer-section">
