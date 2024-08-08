@@ -36,7 +36,7 @@ router.get('/descripcion/:id', async (req, res) => {
       where: {
         Idejercicios: idNum,
       },
-    });
+    }); 
 
     if (!ejercicio) {
       return res.status(404).json({ error: 'Ejercicio no encontrado' });
@@ -48,5 +48,26 @@ router.get('/descripcion/:id', async (req, res) => {
     res.status(500).json({ error: 'Error al obtener la descripción del ejercicio' + error });
   }
 });
+router.get('/Alternative/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const idNum = parseInt(id, 10);
+    const ejercicio = await prisma.ejercicios.findUnique({
+      where: {
+        Idejercicios: idNum,
+      },
+      select: {
+        Alternative: true,
+      },
+    });
 
-export default router;
+    if (!ejercicio || !ejercicio.Alternative) {
+      return res.status(404).json({ error: 'Ejercicio o columna Alternative no encontrado' });
+    }
+
+    res.json(ejercicio);
+  } catch (error) {
+    console.error('Error al obtener la columna Alternative del ejercicio:', error);
+    res.status(500).json({ error: 'Error al obtener la columna Alternative del ejercicio' + error });
+  }
+});
