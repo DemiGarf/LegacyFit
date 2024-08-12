@@ -3,5 +3,5 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/ejercicios/Alternative/:id
+GET http://localhost:3000/ejercicios/Alternative/1
 Content-Type: application/json
