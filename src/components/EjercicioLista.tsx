@@ -19,7 +19,7 @@ const EjercicioLista: React.FC = () => {
 
     return (
         <div id="ejerciciolista">
-            <h2 className="main-title.ej">Exercises</h2>
+            <h2 className="main-title">Exercises</h2>
             <div className="ejercicios-listado-container row">
                 {ejercicios.map(ejercicio => (
                     <div key={ejercicio.Idejercicios} className="col-12 col-md-6">

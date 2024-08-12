@@ -69,7 +69,7 @@ const Ejercicio: React.FC = () => {
 
   return (
     <div id="ejercicio">
-      <h2 className="main-title">{ejercicio.Nombre}</h2>
+      <h2 className="titulo_ej">{ejercicio.Nombre}</h2>
       <div className="informacion-container">
         <button className="guardar-button">Add to your <br/> training routine</button>
         
