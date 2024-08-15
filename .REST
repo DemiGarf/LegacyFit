@@ -1,4 +1,4 @@
-GET http://localhost:3000/ejercicios/
+GET http://localhost:3000/ejercicios/descripcion/1
 Content-Type: application/json
 
 ###

@@ -19,6 +19,7 @@ model Ejercicios {
   Nombre       String
   Descripcion  String
   Alternative  String?
+  Videos       String?
 }
 
 model Rutinas {

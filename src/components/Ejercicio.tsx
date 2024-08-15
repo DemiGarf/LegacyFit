@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const Ejercicio: React.FC = () => {
   const [isExplicationModalOpen, setIsExplicationModalOpen] = useState(false);
   const [isAlternativesModalOpen, setIsAlternativesModalOpen] = useState(false);
-  const [ejercicio, setEjercicio] = useState<{ Id: string; Nombre: string; Descripcion: string; } | null>(null);
+  const [ejercicio, setEjercicio] = useState<{ Id: string; Nombre: string; Descripcion: string; Alternative: string} | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ const Ejercicio: React.FC = () => {
         }
         const data = await response.json();
         setEjercicio(data);
+        console.log(data)
       } catch (error) {
         console.error('Error fetching exercise:', error);
         setError('Error fetching exercise');
@@ -56,17 +57,6 @@ const Ejercicio: React.FC = () => {
     return <div>Cargando...</div>;
   }
 
-  const modalContent = (
-    <>
-      <h3>Correct Technique:</h3>
-      <p>Lie on a flat bench with feet planted firmly on the ground.</p>
-      <p>Grip the barbell slightly wider than shoulder-width apart.</p>
-      <p>Lower the barbell to the lower chest, then press it upward without locking elbows.</p>
-      <p>Maintain a slight arch in the lower back for stability.</p>
-      <p>Make sure your elbows are at a 45-degree angle to your shoulders.</p>
-    </>
-  );
-
   return (
     <div id="ejercicio">
       <h2 className="titulo_ej">{ejercicio.Nombre}</h2>
@@ -82,7 +72,7 @@ const Ejercicio: React.FC = () => {
           {isExplicationModalOpen && (
             <div className="modal" onClick={handleCloseExplicationModal}>
               <div className="modal-content sombra-2" onClick={e => e.stopPropagation()}>
-                {modalContent}
+                <p>{ejercicio.Descripcion}</p>
               </div>
             </div>
           )}
@@ -94,7 +84,7 @@ const Ejercicio: React.FC = () => {
           {isAlternativesModalOpen && (
             <div className="modal" onClick={handleCloseAlternativesModal}>
               <div className="modal-content sombra-2" onClick={e => e.stopPropagation()}>
-                {modalContent}
+                {ejercicio.Alternative}
               </div>
             </div>
           )}
