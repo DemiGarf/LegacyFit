@@ -14,9 +14,9 @@ const App: React.FC = () => {
             <div className="App">
               <header className="App-header">
                 <div className="exercise-label">
-                  <img src="../public/Logo_canva_compartido_con_mati-removebg-preview 2 (1).png" alt="Logo" className='logo' />
+                  <img src="/Logo_canva_compartido_con_mati-removebg-preview 2 (1).png" alt="Logo" className='logo' />
                 </div>
-                <a href="#"  onClick={() => window.history.back()} className="arrow-button"><img src="../public/volver-removebg-preview 1.png" alt="Arrow" className='arrow' /></a>
+                <a href="#"  onClick={() => window.history.back()} className="arrow-button"><img src="/volver-removebg-preview 1.png" alt="Arrow" className='arrow' /></a>
               </header>
               <main className="App-content">
                   {/* Contenido principal */}
