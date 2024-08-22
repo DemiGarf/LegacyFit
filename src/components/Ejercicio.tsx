@@ -34,7 +34,7 @@ const Ejercicio: React.FC = () => {
 
         // Guardar el link del video en la variable videoLink
         if (data.Videos && data.Videos.length > 0) {
-          setVideoLink(data.Videos[0]); // Asumiendo que quieres guardar el primer video
+          setVideoLink(data.Videos[0]); 
         }
 
         // Guardar el video en cuestión en la referencia
