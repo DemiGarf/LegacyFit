@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 const Ejercicio: React.FC = () => {
   const [isExplicationModalOpen, setIsExplicationModalOpen] = useState(false);
@@ -7,7 +7,8 @@ const Ejercicio: React.FC = () => {
   const [videoLink, setVideoLink] = useState<string | null>(null); // Variable para guardar el link del video
   const [error, setError] = useState<string | null>(null);
 
-  let videoEnCuestion1;
+  // Usamos useRef para almacenar la referencia del video en cuestión
+  const videoEnCuestion1 = useRef<string[] | null>(null);
 
   useEffect(() => {
     const fetchEjercicio = async () => {
@@ -18,7 +19,6 @@ const Ejercicio: React.FC = () => {
         setError('No se proporcionó un ID válido');
         return;
       }
-    
 
       try {
         const response = await fetch(`http://localhost:3000/ejercicios/descripcion/${id}`);
@@ -33,10 +33,10 @@ const Ejercicio: React.FC = () => {
           setVideoLink(data.Videos[0]); // Asumiendo que quieres guardar el primer video
         }
 
-        let videoEnCuestion=data.Videos;
-        videoEnCuestion1=videoEnCuestion;
+        // Guardar el video en cuestión en la referencia
+        videoEnCuestion1.current = data.Videos;
 
-        console.log("dufgudf",videoEnCuestion1);
+        console.log("dufgudf", videoEnCuestion1.current);
         console.log('Video Link:', data.Videos); // Mostrar el link del video en la consola
       } catch (error) {
         console.error('Error fetching exercise:', error);
@@ -71,10 +71,26 @@ const Ejercicio: React.FC = () => {
     return <div>Cargando...</div>;
   }
 
-  console.log("sjd",videoEnCuestion1);
+  console.log("sjd", videoEnCuestion1.current);
 
   return (
     <div id="ejercicio">
+      <div style={{ position: 'absolute', top: 0, left: 0 }}>
+      <iframe
+        src={videoEnCuestion1.current}
+        title="Ejercicio Video"
+        style={{
+          position: 'absolute',
+          top: 98,
+          left: 100,
+          width: '500px', // Ajusta el ancho según tus necesidades
+          height: '310px', // Ajusta la altura según tus necesidades
+          border: 'none',
+          
+        }}
+        allowFullScreen
+      ></iframe>
+      </div>
       <h2 className="titulo_ej">{ejercicio.Nombre}</h2>
       <div className="informacion-container">
         <button className="guardar-button">Add to your <br/> training routine</button>
