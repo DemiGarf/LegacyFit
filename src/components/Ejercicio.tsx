@@ -8,7 +8,11 @@ const Ejercicio: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   // Usamos useRef para almacenar la referencia del video en cuestión
-  const videoEnCuestion1 = useRef<string[] | null>(null);
+  const videoEnCuestion1 = useRef<string | undefined>(undefined)
+
+  let abc=videoLink;
+  let ar=abc;
+  abc=ar;
 
   useEffect(() => {
     const fetchEjercicio = async () => {
