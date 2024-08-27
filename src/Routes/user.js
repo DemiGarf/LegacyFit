@@ -1,5 +1,6 @@
 import express from 'express';
-import { PrismaClient } from '@prisma/client';
+import pkg from '@prisma/client';
+const { PrismaClient } = pkg;
 import { createClient } from '@supabase/supabase-js';
 
 const router = express.Router();
