@@ -1,6 +1,7 @@
-const express = require('express');
-const { PrismaClient } = require('@prisma/client');
-const { createClient } = require('@supabase/supabase-js');
+import express from 'express';
+import pkg from '@prisma/client';
+const { PrismaClient } = pkg;
+import { createClient } from '@supabase/supabase-js';
 
 const router = express.Router();
 const prisma = new PrismaClient();
@@ -26,8 +27,8 @@ router.post('/', async (req, res) => {
     const newUser = await prisma.user.create({
       data: { name, email },
     });
+    // También puedo hacer algo con Supabase aca
 
-    // También podrías hacer algo con Supabase aquí
     // const { data, error } = await supabase
     //   .from('your-table')
     //   .insert([{ name, email }]);

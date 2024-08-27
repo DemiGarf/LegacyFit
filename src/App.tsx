@@ -1,81 +1,40 @@
-import React, { useState } from 'react';
-import './App.css';
+// App.tsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css'; // Asegúrate de tener este archivo para los estilos
+
+import Home from './components/Home';
+import Ejercicio from './components/Ejercicio';
+import EjercicioLista from './components/EjercicioLista';
+// importa otras pantallas necesarias
 
 const App: React.FC = () => {
-  const [isExplicationModalOpen, setIsExplicationModalOpen] = useState(false);
-  const [isAlternativesModalOpen, setIsAlternativesModalOpen] = useState(false);
-
-  const handleOpenExplicationModal = () => {
-    setIsExplicationModalOpen(!isExplicationModalOpen);
-  };
-
-  const handleCloseExplicationModal = () => {
-    setIsExplicationModalOpen(false);
-  };
-
-  const handleOpenAlternativesModal = () => {
-    setIsAlternativesModalOpen(!isAlternativesModalOpen);
-  };
-
-  const handleCloseAlternativesModal = () => {
-    setIsAlternativesModalOpen(false);
-  };
-
-  const modalContent = (
-    <>
-      <h2>Correct Technique:</h2>
-      <p>Lie on a flat bench with feet planted firmly on the ground.</p>
-      <p>Grip the barbell slightly wider than shoulder-width apart.</p>
-      <p>Lower the barbell to the lower chest, then press it upward without locking elbows.</p>
-      <p>Maintain a slight arch in the lower back for stability.</p>
-      <p>Make sure your elbows are at a 45-degree angle to your shoulders.</p>
-    </>
-  );
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <div className="exercise-label">
-          <img src="../public/Logo_canva_compartido_con_mati-removebg-preview 2 (1).png" alt="Logo" className='logo' />
-        </div>
-        <button className="arrow-button"><img src="../public/volver-removebg-preview 1.png" alt="Arrow" className='arrow' /></button>
-      </header>
-      <main className="App-content">
-        <div className="informacion-container">
-        
-          <button className="guardar-button">Add to your 
-          training routine</button>
-        </div>
-        
-      </main>
-      <footer className="App-footer">
-        <div className="footer-section">
-          <div>
-            <button className="footer-button" onClick={handleOpenExplicationModal}>Explication</button>
-          </div>
-          {isExplicationModalOpen && (
-            <div className="modal" onClick={handleCloseExplicationModal}>
-              <div className="modal-content sombra-2" onClick={e => e.stopPropagation()}>
-                {modalContent}
-              </div>
+    return (
+        <Router>
+            <div className="App">
+              <header className="App-header">
+                <div className="exercise-label">
+                  <img src="/Logo_canva_compartido_con_mati-removebg-preview 2 (1).png" alt="Logo" className='logo' />
+                </div>
+                <a href="#"  onClick={() => window.history.back()} className="arrow-button"><img src="/volver-removebg-preview 1.png" alt="Arrow" className='arrow' /></a>
+              </header>
+              <main className="App-content">
+                  {/* Contenido principal */}
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/ejercicio" element={<Ejercicio />} />
+                    <Route path="/lista" element={<EjercicioLista />} />
+                      {/* Agrega rutas para otras pantallas aquí */}
+                  </Routes>
+              </main>
+              <footer className="App-footer">
+                <div className="footer-section">
+                  
+                </div>
+              </footer>
             </div>
-          )}
-        </div>
-        <div className="footer-section">
-          <div>
-            <button className="footer-button" onClick={handleOpenAlternativesModal}>Alternatives</button>
-          </div>
-          {isAlternativesModalOpen && (
-            <div className="modal" onClick={handleCloseAlternativesModal}>
-              <div className="modal-content sombra-2" onClick={e => e.stopPropagation()}>
-                {modalContent}
-              </div>
-            </div>
-          )}
-        </div>
-      </footer>
-    </div>
-  );
+        </Router>
+    );
 };
 
 export default App;

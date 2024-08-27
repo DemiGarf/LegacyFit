@@ -1,7 +1,10 @@
-const express = require('express');
-const { PrismaClient } = require('@prisma/client');
-const { createClient } = require('@supabase/supabase-js');
-const userRoutes = require('./routes/users');
+import express from 'express';
+import pkg from '@prisma/client';
+const { PrismaClient } = pkg;
+import cors from 'cors';
+import { createClient } from '@supabase/supabase-js';
+import userRoutes from './Routes/user.js';
+import ejerciciosRoutes from './Routes/ejercicios.js'
 
 const app = express();
 const prisma = new PrismaClient();
@@ -11,9 +14,12 @@ const supabaseKey = process.env.SUPABASE_KEY || 'Legacy2:)#la';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 app.use(express.json());
+app.use(cors());
 
 // Usar las rutas de usuarios
-app.use('/users', userRoutes);
+//app.use('/user', userRoutes);
+
+app.use('/ejercicios', ejerciciosRoutes);
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 3000;

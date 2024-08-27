@@ -9,6 +9,40 @@ html, body, #root {
   width: 100%;
 }
 
+.home{
+  width: 1080px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hometext{
+  width: 1080px;
+
+}
+
+.main-title {
+  font-size: 3em;
+  color: #9F4014;
+  text-align: center;
+}
+
+.titulo_ej {
+  font-size: 2.7em;
+  color: #9F4014;
+  text-align: center;
+  margin-left: 50%;
+}
+
+.main-title.ej {
+  font-size: 3em;
+  color: #9F4014;
+  text-align: center;
+  
+}
+
+
 .sombra-1 {box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.5);}
 .sombra-2{ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.8), 0 1px 2px -1px rgb(0 0 0 / 0.8);}
 .sombra-3{ box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.8), 0 2px 4px -2px rgb(0 0 0 / 0.8);}
@@ -27,7 +61,7 @@ html, body, #root {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 0px 20px;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
 }
@@ -36,23 +70,6 @@ html, body, #root {
   font-size: 16px;
 }
 
-
-
-.App-content {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
-
-.App-footer {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  padding: 20px;
-}
 
 .footer-section {
   width: 50%;
@@ -127,10 +144,84 @@ html, body, #root {
   font-weight: bold;
   position: relative;
   margin-bottom: 20px;
-  
+  margin-right: -54px;
 }
 
 .guardar-button:hover {
   background-color: rgba(255, 255, 255, 0.2);
 
+}
+
+.App-content {
+  flex-grow:1;
+}
+main.App-content > div {
+  height: 100%;
+  width: 100%;
+} 
+
+
+/*********EJERCICIO*************/
+.ejercicio-footer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 20px;
+  bottom: 0;
+  position: absolute;
+}
+
+
+#ejercicio {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/*********EJERCICIO LISTA*************/
+#ejerciciolista {
+  text-align: center;
+}
+
+.ejercicio-listado-item {
+  background-color: #FFFFFF;
+  margin: 1em 3em;
+  padding: 1em 0;
+
+  border-radius: 50px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #000;
+}
+
+.ejercicio-button{
+    background-color: rgba(255,255,255, 0.4);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Poppins';
+    padding: 16px 55px;
+      font-size: 2em;
+      border-radius: 10px;
+      font-weight: bold;
+}
+
+.lista-button{
+  margin-bottom: 20px;
+  background-color: rgba(255,255,255, 0.4);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Poppins';
+  padding: 16px 55px;
+    font-size: 2em;
+    border-radius: 10px;
+    font-weight: bold;
 }
