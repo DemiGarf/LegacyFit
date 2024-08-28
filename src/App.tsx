@@ -1,12 +1,10 @@
 // App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css'; // Asegúrate de tener este archivo para los estilos
-
+import './App.css'; 
 import Home from './components/Home';
 import Ejercicio from './components/Ejercicio';
 import EjercicioLista from './components/EjercicioLista';
-// importa otras pantallas necesarias
 
 const App: React.FC = () => {
     return (
