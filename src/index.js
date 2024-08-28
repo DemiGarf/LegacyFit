@@ -20,7 +20,7 @@ app.use(cors());
 //app.use('/user', userRoutes);
 
 app.use('/ejercicios', ejerciciosRoutes);
-
+app.use('/Videos/:id', ejerciciosRoutes);
 // Iniciar el servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
