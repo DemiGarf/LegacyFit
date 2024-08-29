@@ -6,7 +6,7 @@ const EjercicioLista: React.FC = () => {
     useEffect(() => {
         const fetchEjercicios = async () => {
             try {
-                const response = await fetch('http://localhost:3000/ejercicios/');
+                const response = await fetch('https://legacy-fit-pp4p.vercel.app/ejercicios/nombres');
                 const data = await response.json();
                 setEjercicios(data);
             } catch (error) {
