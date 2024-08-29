@@ -25,7 +25,7 @@ const Ejercicio: React.FC = () => {
       }
 
       try {
-        const response = await fetch(`http://localhost:3000/ejercicios/descripcion/${id}`);
+        const response = await fetch(`https://legacy-fit-pp4p.vercel.app/ejercicios/descripcion/${id}`);
         if (!response.ok) {
           throw new Error('Error al obtener los datos del ejercicio');
         }
