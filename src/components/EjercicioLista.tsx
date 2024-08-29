@@ -13,7 +13,6 @@ const EjercicioLista: React.FC = () => {
                 console.error('Error fetching exercises:', error);
             }
         };
-
         fetchEjercicios();
     }, []);
 
