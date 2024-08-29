@@ -5,8 +5,6 @@
         "src": "index.js",
         "use": "@vercel/node"
       }
-    ],
-    "routes": [
-      { "src": "/ejercicios(.*)", "dest": "Routes/ejercicios.js" }
     ]
+    
   }
