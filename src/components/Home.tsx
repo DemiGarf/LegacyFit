@@ -5,7 +5,7 @@ import "../App.css"
 const Home: React.FC = () => {
     return (
         <div className="home">
-            <h2 className="main-title">Inicio de sesión</h2> {/* Título fuera del contenedor del formulario */}
+            <h2 className="main-title">Registrarse</h2> {/* Título fuera del contenedor del formulario */}
             <div className="login-container">
                 <form className="login-form">
                     <div className="form-group">
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
                         <label htmlFor="password">Contraseña</label>
                         <input type="password" id="password" placeholder="Ingresa tu contraseña" />
                     </div>
-                    <button type="submit" className="submit-button">Iniciar sesión</button>
+                    <button type="submit" className="submit-button">Registrarse</button>
                 </form>
             </div>
         </div>

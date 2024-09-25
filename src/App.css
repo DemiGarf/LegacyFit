@@ -253,13 +253,15 @@ main.App-content > div {
 
 
 /* ----------- LOGIN FORM ----------- */
+/* Ajustar el tamaño del contenedor del formulario */
 .login-container {
   background-color: white;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.8), 0 2px 4px -2px rgb(0 0 0 / 0.8);
-  width: 100%;
-  max-width: 400px;
+  width: 500px; /* Aumentar el ancho */
+  height: auto; /* Ajustar la altura automáticamente */
+  max-width: 500px; /* Fijar un ancho máximo si es necesario */
   text-align: center;
 }
 
@@ -275,43 +277,52 @@ main.App-content > div {
 }
 
 
+/* Alinear las etiquetas a la izquierda */
 label {
   font-size: 1rem;
   color: #555;
   margin-bottom: 0.5rem;
   display: block;
+  text-align: left; /* Alineación a la izquierda */
+  font-weight: bold;
 }
 
-
+/* Hacer los campos de entrada más redondeados */
 input {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 20px; /* Redondear los bordes */
   font-size: 1rem;
   box-sizing: border-box;
   transition: border-color 0.3s ease;
+  
 }
-
 
 input:focus {
   border-color: #9F4014;
   outline: none;
+  
 }
 
 
+
 .submit-button {
-  background-color: #4CAF50;
+  background-color: #9F4014;
   color: white;
   padding: 0.7rem;
   font-size: 1.2rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 55px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 50%; /* Ajusta el ancho del botón */
+  max-width: 200px; /* Establece un ancho máximo opcional */
+  margin: 0 auto; /* Centra el botón */
 }
 
 
-.submit-button:hover {
-  background-color: #45a049;
+
+.submit-button {
+  background-color: #9F4014; 
 }
