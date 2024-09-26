@@ -19,9 +19,9 @@ const EjercicioLista: React.FC = () => {
     return (
         <div id="ejerciciolista">
             <h2 className="main-title">Exercises</h2>
-            <div className="ejercicios-listado-container row">
+            <div className="ejercicios-listado-container row" style={{ maxWidth: "100vw"}}>
                 {ejercicios.map(ejercicio => (
-                    <div key={ejercicio.Idejercicios} className="col-12 col-md-6">
+                    <div key={ejercicio.Idejercicios}  className="col-12 col-md-6">
                         <a href={`/ejercicio?id=${ejercicio.Idejercicios}`} className="">
                             <div className="ejercicio-listado-item">
                                 {ejercicio.Nombre}

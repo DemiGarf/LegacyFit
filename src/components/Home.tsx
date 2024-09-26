@@ -7,7 +7,7 @@ const Home: React.FC = () => {
         <div className="home">
             <h2 className="main-title">Registrarse</h2> {/* Título fuera del contenedor del formulario */}
             <div className="login-container">
-                <form className="login-form">
+                <form action='/lista' method='GET' className="login-form">
                     <div className="form-group">
                         <label htmlFor="nombre">Nombre</label>
                         <input type="text" id="nombre" placeholder="Ingresa tu nombre" />
@@ -26,6 +26,9 @@ const Home: React.FC = () => {
                     </div>
                     <button type="submit" className="submit-button">Registrarse</button>
                 </form>
+            </div>
+            <div>
+                <p className="login-desc">Ya tenes cuenta? &nbsp; &nbsp; <a href="/iniciar-session">Inicia Session</a></p>
             </div>
         </div>
     );
