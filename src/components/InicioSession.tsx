@@ -11,7 +11,7 @@ const InicioSession: React.FC = () => {
             <div className="login-container">
                 <form action='/lista' method='GET' className="login-form">
                     <div className="form-group">
-                        <label htmlFor="email">Email o Telefono</label>
+                        <label htmlFor="email">Email</label>
                         <input type="text" id="email" placeholder='email o telefono'/>
                     </div>
                     <div className="form-group">
