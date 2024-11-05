@@ -7,6 +7,7 @@ const Ejercicio: React.FC = () => {
   const [ejercicio, setEjercicio] = useState<{ Id: string; Nombre: string; Descripcion: string; Alternative: string } | null>(null);
   const [videoLink, setVideoLink] = useState<string | null>(null); // Variable para guardar el link del video
   const [error, setError] = useState<string | null>(null);
+  const modelo="/cubo.fbx";
 
   // Usamos useRef para almacenar la referencia del video en cuestión
   const videoEnCuestion1 = useRef<string | undefined>(undefined)
@@ -76,12 +77,12 @@ const Ejercicio: React.FC = () => {
     return <div>Cargando...</div>;
   }
 
-  console.log("sjd", videoEnCuestion1.current);
+  console.log("modelo:", modelo);
 
   return (
     <div id="ejercicio">
       <div style={{ width: '100vw', height: '100vh' }}>
-      <FBXViewer fbxUrl="./cubo.fbx"  />
+      <FBXViewer fbxUrl={modelo}  />
     </div>
       <h2 className="titulo_ej">{ejercicio.Nombre}</h2>
       <div className="informacion-container">
