@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import FBXViewer from './Visualisador3d';
 
 const Ejercicio: React.FC = () => {
   const [isExplicationModalOpen, setIsExplicationModalOpen] = useState(false);
@@ -79,22 +80,9 @@ const Ejercicio: React.FC = () => {
 
   return (
     <div id="ejercicio">
-      <div style={{ position: 'absolute', top: 0, left: 0 }}>
-      <iframe
-        src={videoEnCuestion1.current}
-        title="Ejercicio Video"
-        style={{
-          position: 'absolute',
-          top: 98,
-          left: 100,
-          width: '500px', // Ajusta el ancho según tus necesidades
-          height: '310px', // Ajusta la altura según tus necesidades
-          border: 'none',
-          
-        }}
-        allowFullScreen
-      ></iframe>
-      </div>
+      <div style={{ width: '100vw', height: '100vh' }}>
+      <FBXViewer fbxUrl="./cubo.fbx"  />
+    </div>
       <h2 className="titulo_ej">{ejercicio.Nombre}</h2>
       <div className="informacion-container">
         <button className="guardar-button">Add to your <br/> training routine</button>
