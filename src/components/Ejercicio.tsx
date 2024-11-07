@@ -82,7 +82,7 @@ const Ejercicio: React.FC = () => {
   return (
     <div id="ejercicio">
       <div style={{ width: '100vw', height: '100vh' }}>
-      <Modelo3DViewer modeloPath="/cec_3-stage_building.glb" />
+      <Modelo3DViewer modeloPath="/Rampaging T-Rex.glb" />
 
     </div>
       <h2 className="titulo_ej">{ejercicio.Nombre}</h2>
