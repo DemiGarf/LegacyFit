@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import FBXViewer from './Visualisador3d';
+import Modelo3DViewer from './Modelo3DViewer';
 
 const Ejercicio: React.FC = () => {
   const [isExplicationModalOpen, setIsExplicationModalOpen] = useState(false);
@@ -82,7 +82,8 @@ const Ejercicio: React.FC = () => {
   return (
     <div id="ejercicio">
       <div style={{ width: '100vw', height: '100vh' }}>
-      <FBXViewer fbxUrl={modelo}  />
+      <Modelo3DViewer modeloPath="/cec_3-stage_building.glb" />
+
     </div>
       <h2 className="titulo_ej">{ejercicio.Nombre}</h2>
       <div className="informacion-container">
