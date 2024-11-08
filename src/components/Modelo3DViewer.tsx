@@ -1,11 +1,20 @@
 // Modelo3DViewer.tsx
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF } from '@react-three/drei';
+import { OrbitControls, useGLTF, useAnimations } from '@react-three/drei';
 
-// Componente para cargar el modelo GLB
+// Componente para cargar y animar el modelo GLB
 const Modelo3D = ({ modeloPath }: { modeloPath: string }) => {
-  const { scene } = useGLTF(modeloPath); // Cargar el modelo GLB desde la URL proporcionada
+  // Cargar el modelo GLB y las animaciones
+  const { scene, animations } = useGLTF(modeloPath);
+  const { actions } = useAnimations(animations, scene);
+
+  // Reproducir la primera animación automáticamente
+  React.useEffect(() => {
+    if (actions && animations.length > 0) {
+      actions[animations[0].name]?.play(); // Inicia la animación
+    }
+  }, [actions, animations]);
 
   return <primitive object={scene} />;
 };
@@ -14,10 +23,10 @@ const Modelo3D = ({ modeloPath }: { modeloPath: string }) => {
 const Modelo3DViewer = ({ modeloPath }: { modeloPath: string }) => {
   return (
     <Canvas>
-      <ambientLight intensity={0.5} /> {/* Luz ambiental */}
-      <directionalLight position={[10, 10, 5]} intensity={1} /> {/* Luz direccional */}
-      <Modelo3D modeloPath={modeloPath} /> {/* Cargar y mostrar el modelo */}
-      <OrbitControls /> {/* Permite mover la cámara con el mouse */}
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} intensity={5} />
+      <Modelo3D modeloPath={modeloPath} />
+      <OrbitControls />
     </Canvas>
   );
 };

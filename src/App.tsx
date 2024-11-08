@@ -6,7 +6,9 @@ import './App.css'; // Asegúrate de tener este archivo para los estilos
 import Home from './components/Home';
 import Ejercicio from './components/Ejercicio';
 import EjercicioLista from './components/EjercicioLista';
-import InicioSession from "./components/InicioSession"
+import InicioSession from "./components/InicioSession";
+import Prueba from "./components/Prueba";
+
 // importa otras pantallas necesarias
 
 const App: React.FC = () => {
@@ -26,6 +28,8 @@ const App: React.FC = () => {
                     <Route path="/ejercicio" element={<Ejercicio />} />
                     <Route path="/lista" element={<EjercicioLista />} />
                     <Route path="/iniciar-session" element={<InicioSession />} /> 
+                    <Route path="/3d" element={<Prueba />} /> 
+
                       {/* Agrega rutas para otras pantallas aquí */}
                   </Routes>
               </main>

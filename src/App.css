@@ -56,8 +56,15 @@ html, body, #root {
 .titulo_ej {
   font-size: 2.7em;
   color: #9F4014;
-  text-align: center;
-  margin-left: 50%;
+  position: absolute;
+  margin-left: 45%;
+}
+.modeladoeint{
+  position: absolute;
+  margin-top: 1%;
+  width: 50vw;
+  height: 40vw;
+  
 }
 
 

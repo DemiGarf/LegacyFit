@@ -8,7 +8,7 @@ const Ejercicio: React.FC = () => {
   const [videoLink, setVideoLink] = useState<string | null>(null); // Variable para guardar el link del video
   const [error, setError] = useState<string | null>(null);
   const modelo="/cubo.fbx";
-
+  let rutamodelo="";
   // Usamos useRef para almacenar la referencia del video en cuestión
   const videoEnCuestion1 = useRef<string | undefined>(undefined)
 
@@ -51,6 +51,7 @@ const Ejercicio: React.FC = () => {
     };
 
     fetchEjercicio();
+    
   }, []);
 
   const handleOpenExplicationModal = () => {
@@ -76,13 +77,18 @@ const Ejercicio: React.FC = () => {
   if (!ejercicio) {
     return <div>Cargando...</div>;
   }
-
+  rutamodelo="/"+ejercicio?.Nombre+".glb"
+  console.log("la ruta es"+rutamodelo);
   console.log("modelo:", modelo);
 
   return (
     <div id="ejercicio">
-      <div style={{ width: '100vw', height: '100vh' }}>
-      <Modelo3DViewer modeloPath="/Rampaging T-Rex.glb" />
+      <div style={{ width: '100vw', height: '10vh' }}>
+        <div className='modeladoeint'>
+        <Modelo3DViewer modeloPath={rutamodelo} />
+
+        </div>
+     
 
     </div>
       <h2 className="titulo_ej">{ejercicio.Nombre}</h2>
