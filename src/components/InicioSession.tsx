@@ -46,7 +46,7 @@ const InicioSession: React.FC = () => {
                         type="email"
                         value={Mail}
                             onChange={(e) => setMail(e.target.value)}
-                         id="email" placeholder='email o telefono'/>
+                         id="email" placeholder='Ingrese su email'/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Contraseña</label>
