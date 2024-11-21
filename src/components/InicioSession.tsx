@@ -24,12 +24,19 @@ const InicioSession: React.FC = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(userData)
-            });
+            }).then(res => {console.log(res); return res.json();});
 
             console.log(response);
-            if (response.ok) {
+            if (response) {
                 console.log('Usuario registrado con éxito');
                 // Redireccionar o mostrar mensaje de éxito
+                function setCookie(cname:string, cvalue: string, exdays:number) {
+                    const d = new Date();
+                    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                    let expires = "expires="+ d.toUTCString();
+                    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+                  }
+                  setCookie("token", response.token, 7)
                 window.location.href = "/lista";
             } else {
                 console.error('Error al registrar el usuario');

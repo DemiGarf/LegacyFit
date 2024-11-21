@@ -104,7 +104,26 @@ html, body, #root {
   color: #282c34;
   background: linear-gradient(180deg, rgba(233, 208, 208, 9) 20%, rgba(159,64,20,2) 100%);
 }
-
+.heart {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  background: white;
+  border-radius: 50%;
+  width: 60px;
+  z-index: 10000;
+  font-size: 2.5em;
+  color: black;
+  cursor: pointer;
+  transition: .2s all ease;
+}
+.heart.toggled {
+  color: red;
+}
+.heart:hover {
+  cursor: pointer;
+  color: #d6581d;
+}
 
 .App-header {
   display: flex;

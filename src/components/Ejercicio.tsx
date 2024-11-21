@@ -80,16 +80,45 @@ const Ejercicio: React.FC = () => {
   rutamodelo="/"+ejercicio?.Nombre+".glb"
   console.log("la ruta es"+rutamodelo);
   console.log("modelo:", modelo);
+  const favClick = async (e: any) => {
+    function getCookie(cname: string) {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+    e.preventDefault();
+    const queryParams = new URLSearchParams(window.location.search);
+    const id = queryParams.get('id');
+    const res = await fetch("https://legacy-fit-pp4p.vercel.app/favs/favoritos/" + id, {
+      method: "PATCH",
+      headers: {
+        "authorization": "Bearer " + getCookie("token")
+      }
+    })
+    console.log(res)
+    const data = await res.json()
+    console.log(data)
+    e.target.classList.add("toggled")
+  }
 
   return (
     <div id="ejercicio">
+      <a href="#" onClick={favClick} className="heart">&#9829;</a>
       <div style={{ width: '100vw', height: '10vh' }}>
         <div className='modeladoeint'>
         <Modelo3DViewer modeloPath={rutamodelo} />
 
         </div>
-     
-
     </div>
       <h2 className="titulo_ej">{ejercicio.Nombre}</h2>
       <div className="informacion-container">
