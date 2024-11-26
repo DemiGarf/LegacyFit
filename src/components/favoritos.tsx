@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { div } from 'three/webgpu';
+// import { div } from 'three/webgpu';
 import '../App.css'; // Asegúrate de tener este archivo para los estilos
 
 const EjercicioLista: React.FC = () => {
