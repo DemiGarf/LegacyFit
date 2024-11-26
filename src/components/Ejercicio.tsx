@@ -7,6 +7,7 @@ const Ejercicio: React.FC = () => {
   const [ejercicio, setEjercicio] = useState<{ Id: string; Nombre: string; Descripcion: string; Alternative: string } | null>(null);
   const [videoLink, setVideoLink] = useState<string | null>(null); // Variable para guardar el link del video
   const [error, setError] = useState<string | null>(null);
+  const [fav, setFav] = useState<boolean | null>(false)
   const modelo="/cubo.fbx";
   let rutamodelo="";
   // Usamos useRef para almacenar la referencia del video en cuestión
@@ -27,6 +28,35 @@ const Ejercicio: React.FC = () => {
       }
 
       try {
+        function getCookie(cname: string) {
+          let name = cname + "=";
+          let decodedCookie = decodeURIComponent(document.cookie);
+          let ca = decodedCookie.split(';');
+          for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+            }
+          }
+          return "";
+        }
+        const res = await fetch('https://legacy-fit-pp4p.vercel.app/favs/favoritos', {
+          headers: {
+              "authorization": "Bearer " + getCookie("token")
+          }
+      });
+      const d = await res.json();
+      for(let i = 0; i < d.length; i++) {
+        // @ts-ignore
+        let ej = d[i].ejercicio
+        if(ej.Idejercicios == id) {
+          setFav(true)
+          break;
+        }
+      }
         const response = await fetch(`https://legacy-fit-pp4p.vercel.app/ejercicios/descripcion/${id}`);
         if (!response.ok) {
           throw new Error('Error al obtener los datos del ejercicio');
@@ -97,23 +127,39 @@ const Ejercicio: React.FC = () => {
       return "";
     }
     e.preventDefault();
-    const queryParams = new URLSearchParams(window.location.search);
-    const id = queryParams.get('id');
-    const res = await fetch("https://legacy-fit-pp4p.vercel.app/favs/favoritos/" + id, {
-      method: "PATCH",
-      headers: {
-        "authorization": "Bearer " + getCookie("token")
-      }
-    })
-    console.log(res)
-    const data = await res.json()
-    console.log(data)
-    e.target.classList.add("toggled")
+    if(fav) {
+      const queryParams = new URLSearchParams(window.location.search);
+      const id = queryParams.get('id');
+      const res = await fetch("https://legacy-fit-pp4p.vercel.app/favs/favoritos/remove/" + id, {
+        method: "PATCH",
+        headers: {
+          "authorization": "Bearer " + getCookie("token")
+        }
+      })
+      const d = await res.json()
+      console.log(d)
+      e.target.classList.remove("toggled")
+      setFav(false)
+    } else {
+      const queryParams = new URLSearchParams(window.location.search);
+      const id = queryParams.get('id');
+      const res = await fetch("https://legacy-fit-pp4p.vercel.app/favs/favoritos/" + id, {
+        method: "PATCH",
+        headers: {
+          "authorization": "Bearer " + getCookie("token")
+        }
+      })
+      console.log(res)
+      const data = await res.json()
+      console.log(data)
+      e.target.classList.add("toggled")
+      setFav(true)
+    }
   }
 
   return (
     <div id="ejercicio">
-      <a href="#" onClick={favClick} className="heart">&#9829;</a>
+      <a href="#" onClick={favClick} className={"heart "+ (fav ? "toggled" : "")}>&#9829;</a>
       <div style={{ width: '100vw', height: '10vh' }}>
         <div className='modeladoeint'>
         <Modelo3DViewer modeloPath={rutamodelo} />

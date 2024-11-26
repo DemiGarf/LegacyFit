@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { div } from 'three/webgpu';
 
 const EjercicioLista: React.FC = () => {
     const [ejercicios, setEjercicios] = useState<{ Idejercicios: string; Nombre: string; }[]>([]);
@@ -30,6 +31,7 @@ const EjercicioLista: React.FC = () => {
                     </div>
                 ))}
             </div>
+            <a className='favoritos-btn' href="/favoritos">Favoritos</a>
         </div>
     );
 };

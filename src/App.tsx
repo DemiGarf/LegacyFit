@@ -8,6 +8,7 @@ import Ejercicio from './components/Ejercicio';
 import EjercicioLista from './components/EjercicioLista';
 import InicioSession from "./components/InicioSession";
 import Prueba from "./components/Prueba";
+import Favoritos from "./components/favoritos";
 
 // importa otras pantallas necesarias
 
@@ -26,6 +27,7 @@ const App: React.FC = () => {
                   <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/ejercicio" element={<Ejercicio />} />
+                    <Route path="/favoritos" element={<Favoritos />} />
                     <Route path="/lista" element={<EjercicioLista />} />
                     <Route path="/iniciar-session" element={<InicioSession />} /> 
                     <Route path="/3d" element={<Prueba />} /> 
