@@ -26,8 +26,7 @@ const InicioSession: React.FC = () => {
                 body: JSON.stringify(userData)
             }).then(res => {console.log(res); return res.json();});
 
-            console.log(response);
-            if (response) {
+            if (response?.token?.length > 0) {
                 console.log('Usuario registrado con éxito');
                 // Redireccionar o mostrar mensaje de éxito
                 function setCookie(cname:string, cvalue: string, exdays:number) {
